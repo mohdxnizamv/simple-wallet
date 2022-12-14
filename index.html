@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <link rel="stylesheet" href="app/css/style.css" />
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+      <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+      <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/ipfs/dist/index.min.js"></script>
+      <script src="https://unpkg.com/web3modal@1.9.9/dist/index.js"></script>
+      <script src="https://unpkg.com/evm-chains@0.2.0/dist/umd/index.min.js"></script>
+      <script src="https://unpkg.com/@walletconnect/web3-provider@1.8.0/dist/umd/index.min.js"></script>
+
+      <title>Simple Wallet</title>
+   </head>
+   <body class="font-Alata">
+      <section class="mt-14 text-center">
+         <span id="prepare">
+            <button class="butang3" id="btn-connect">
+               <span>Connect Wallet</span>
+            </button>
+         </span>
+
+         <span id="connected" style="display: none">
+            <button class="butang3" id="btn-disconnect">
+               <span>Disconnect Wallet</span>
+            </button>
+         </span>
+
+         <br />
+
+         <span class="text-xs" id="wallet-address"></span>
+      </section>
+      <!-- 
+
+
+     -->
+      <section class="mx-auto mt-20 max-w-xl p-2">
+         <span class="text-xl">WithdrawMoney</span>
+         <div
+            class="my-1 grid grid-cols-1 gap-x-3 gap-y-10 py-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2"
+         >
+            <input
+               type="text"
+               id="wallet1"
+               maxlength="50"
+               placeholder="address"
+               class="w-64 rounded-lg border-none py-1.5 px-3 text-xs text-black placeholder-gray-500 ring-1 ring-gray-300 focus:ring-2 focus:ring-gray-500"
+            />
+
+            <input
+               type="text"
+               id="wallet2"
+               maxlength="50"
+               placeholder="amount in wei"
+               class="w-64 rounded-lg border-none py-1.5 px-3 text-xs text-black placeholder-gray-500 ring-1 ring-gray-300 focus:ring-2 focus:ring-gray-500"
+            />
+         </div>
+         <button id="approve" class="butang3">Transfer Dana</button>
+      </section>
+
+      <script type="text/javascript">
+         // Image Class No-Cache
+         var nods = document.getElementsByClassName('no-cache')
+         for (var i = 0; i < nods.length; i++) {
+            nods[i].attributes['src'].value +=
+               '?a=' + Math.floor(Date.now() / 1000)
+         }
+         // CSS No-Cache
+         $(document).ready(function () {
+            $.ajax({
+               url: 'app/css/style.css',
+               cache: false,
+               success: function (CSS) {
+                  var s = document.createElement('style')
+                  s.setAttribute('type', 'text/css')
+                  s.innerHTML = CSS
+                  document.getElementsByTagName('head')[0].appendChild(s)
+               },
+               fail: function () {
+                  alert('fail')
+               },
+            })
+         })
+         //----------------------------------------------------------------------------------------------
+         var WalletConnect_JS = document.createElement('script') //no 1
+
+         var abi_JS = document.createElement('script')
+
+         var address_JS = document.createElement('script')
+
+         var contracts_JS = document.createElement('script')
+         //----------------------------------------------------------------------------------------------
+
+         var WalletConnect_URL =
+            './js/walletconnect.js?v=' + Math.floor(Date.now() / 1000) // no 1
+
+         var abi_URL = './js/abi.js?v=' + Math.floor(Date.now() / 1000)
+
+         var address_URL = './js/address.js?v=' + Math.floor(Date.now() / 1000)
+
+         var contracts_URL =
+            './js/contracts.js?v=' + Math.floor(Date.now() / 1000)
+
+         //----------------------------------------------------------------------------------------------
+
+         WalletConnect_JS.setAttribute('src', WalletConnect_URL) // no 1
+         abi_JS.setAttribute('src', abi_URL)
+         address_JS.setAttribute('src', address_URL)
+         contracts_JS.setAttribute('src', contracts_URL)
+
+         //----------------------------------------------------------------------------------------------
+
+         document.head.appendChild(WalletConnect_JS) // no 1
+         document.head.appendChild(abi_JS)
+         document.head.appendChild(address_JS)
+         document.head.appendChild(contracts_JS)
+
+         //----------------------------------------------------------------------------------------------
+         //INPUT 2 DECIMAL PRICE
+         $(document).on('keydown', 'input[pattern]', function (e) {
+            var input = $(this)
+            var oldVal = input.val()
+            var regex = new RegExp(input.attr('pattern'), 'g')
+
+            setTimeout(function () {
+               var newVal = input.val()
+               if (!regex.test(newVal)) {
+                  input.val(oldVal)
+               }
+            }, 1)
+         })
+      </script>
+   </body>
+</html>

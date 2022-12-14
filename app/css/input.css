@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alata&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+   .butang {
+      @apply transform rounded-full border border-gray-300 px-4 py-2 text-sm font-bold shadow-sm hover:scale-105 focus:outline-none focus:ring-2;
+   }
+   .butang2 {
+      @apply transform rounded-full border border-violet-900 bg-violet-600 px-4 py-2 text-sm font-bold text-white shadow-sm hover:scale-105 focus:outline-none focus:ring-2;
+   }
+   .butang3 {
+      @apply relative rounded-lg bg-gradient-to-l from-red-700 to-red-400 px-3 py-1 text-center uppercase text-white hover:bg-gradient-to-r hover:font-extrabold sm:text-sm md:text-sm xl:text-base;
+   }
+}
